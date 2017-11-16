@@ -2,7 +2,7 @@ ObjLoad(addr,objects:=0){
   If addr+0=""{ ; FileRead Mode
     If !FileExist(addr)
       return
-    else v:=FileRead("*c " addr)
+    else v:=FileRead(addr,"RAW")
     If ErrorLevel||!FileGetSize(addr)
       return
     else addr:=&v
