@@ -2,7 +2,7 @@ ObjDump(obj,ByRef var:="",mode:=0){
   If IsObject(var){ ; FileAppend mode
     If FileExist(obj)&&!FileDelete(obj)
       return
-    f:=FileOpen(obj,"rw-rwd"),VarSetCapacity(v,sz:=RawObjectSize(var,mode)+8,0)
+    f:=FileOpen(obj,"rw-rwd","CP0"),VarSetCapacity(v,sz:=RawObjectSize(var,mode)+8,0)
     ,RawObject(var,NumPut(sz-8,ptr:=&v,"Int64"),mode),count:=sz//65536
     Loop count
       f.RawWrite(ptr+0,65536),ptr+=65536
