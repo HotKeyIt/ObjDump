@@ -40,6 +40,7 @@ RawObject(obj,addr,buf:=0,objects:=0){
   }
 }
 RawObjectSize(obj,buf:=0,objects:=0){
+  sz:=0
   if !objects
     objects:={(obj):1}
   else if !objects.HasKey(obj)
